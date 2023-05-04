@@ -8,33 +8,37 @@ from lib.voice_recognition import phrases
 
 
 class Commands(Enum):
-    STOP = 0
+    EXIT = 0
     PLAY = 1
-    PLAY_PLAYLIST = 2
-    PAUSE = 3
-    PREVIOUS = 4
-    NEXT = 5
-    RESUME = 6
-    VOLUME_INCREASE = 7
-    VOLUME_DECREASE = 8
-    UNKNOWN = 9
+    PLAY_PLAYLIST_0 = 2
+    PLAY_PLAYLIST_1 = 3
+    PLAY_PLAYLIST_2 = 4
+    PAUSE = 5
+    PREVIOUS = 6
+    NEXT = 7
+    RESUME = 8
+    VOLUME_INCREASE = 9
+    VOLUME_DECREASE = 10
+    UNKNOWN = 11
 
 
 def get_command(text):
-    if phrases.stop_phrase in text:
-        return Commands.STOP
+    if phrases.exit_phrase in text:
+        return Commands.EXIT
     elif phrases.play_phrase in text:
         return Commands.PLAY
-    elif phrases.play_playlist_phrase in text:
-        return Commands.PLAY_PLAYLIST
-    elif phrases.pause_phrase in text:
+    elif phrases.play_playlist_phrase[0] in text:
+        return Commands.PLAY_PLAYLIST_0
+    elif phrases.play_playlist_phrase[1] in text:
+        return Commands.PLAY_PLAYLIST_1
+    elif phrases.play_playlist_phrase[2] in text:
+        return Commands.PLAY_PLAYLIST_2
+    elif any(phrase in text for phrase in phrases.pause_phrase):
         return Commands.PAUSE
-    elif phrases.next_phrases[0] in text or phrases.next_phrases[1] in text:
+    elif any(phrase in text for phrase in phrases.next_phrases):
         return Commands.NEXT
     elif phrases.previous_phrase in text:
         return Commands.PREVIOUS
-    elif phrases.play_playlist_phrase in text:
-        return Commands.PLAY_PLAYLIST
     elif phrases.resume_phrase in text:
         return Commands.RESUME
     elif phrases.increase_volume in text:
@@ -71,7 +75,7 @@ class VoiceRecognizer:
         try:
             with speech_recognition.Microphone() as mic:
                 # recognizer.energy_threshold = 150
-                recognizer.pause_threshold = 0.8
+                # recognizer.pause_threshold = 0.8
                 recognizer.adjust_for_ambient_noise(mic, duration=0.5)
                 audio = recognizer.listen(mic)
                 # print(recognizer.energy_threshold)
