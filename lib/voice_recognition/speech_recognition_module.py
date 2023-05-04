@@ -71,7 +71,7 @@ class VoiceRecognizer:
         try:
             with speech_recognition.Microphone() as mic:
                 # recognizer.energy_threshold = 150
-                # recognizer.pause_threshold = 0.8
+                recognizer.pause_threshold = 0.8
                 recognizer.adjust_for_ambient_noise(mic, duration=0.5)
                 audio = recognizer.listen(mic)
                 # print(recognizer.energy_threshold)

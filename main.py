@@ -7,7 +7,7 @@ from api.spotify_client import SpotifyClient
 
 
 def main():
-    print("Andrei")
+    print("Listening...")
     voice = VoiceRecognizer()
     spotify = SpotifyClient()
     while True:
@@ -21,9 +21,8 @@ def main():
             spotify.play(song_uri)
         elif voice.command == Commands.PLAY_PLAYLIST:
             playlist = str(voice.text).split(play_playlist_phrase)[1].strip()
-            print(f"|{playlist}|")
+            print(f"Playing playlist: {playlist}")
             playlist_id = spotify.get_playlist_id(playlist)
-            # print(playlist_id)
             spotify.play_playlist(playlist_id)
         elif voice.command == Commands.PAUSE:
             spotify.pause()
