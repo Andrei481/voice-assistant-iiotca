@@ -12,20 +12,21 @@ config = {
 }
 
 firebase = pyrebase.initialize_app(config)
-auth = firebase.auth()
-user = auth.sign_in_with_email_and_password(os.getenv("FIREBASE_EMAIL"), os.getenv("FIREBASE_PWD"))
+#auth = firebase.auth()
+#user = auth.sign_in_with_email_and_password(os.getenv("FIREBASE_EMAIL"), os.getenv("FIREBASE_PWD"))
 db = firebase.database()
 
-test_song = "MUE FIREBASE"
-test_artist = "Gigel Costel"
-numerical_data = 123
+test_song = "fresh"
+test_artist = "domnul puya"
+numerical_data = 6.9
 try:
     data = {
-        "Test Song": test_song,
-        "Test Artist": test_artist,
-        "Test Data": numerical_data
+        "topic": "Spotify",
+        "title": test_song,
+        "message": test_artist,
+        "id": numerical_data
     }
-    db.child("Muzica").push(data)
+    results = db.child("notificationRequests").push(data)
     db.update(data)
     print("Sent to Firebase")
 except RuntimeError as error:
