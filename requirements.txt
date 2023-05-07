@@ -3,3 +3,4 @@ SpeechRecognition
 pycryptodome
 pyrebase
 spotipy
+requests-toolbelt==0.8.0
