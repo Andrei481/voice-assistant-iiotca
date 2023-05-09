@@ -1,0 +1,1 @@
+{'devices': [{'id': '8a671ca6d588926e9363e789018d8a6ca83c78e2', 'is_active': False, 'is_private_session': False, 'is_restricted': False, 'name': 'Web Player (Chrome)', 'type': 'Computer', 'volume_percent': 100}]}
