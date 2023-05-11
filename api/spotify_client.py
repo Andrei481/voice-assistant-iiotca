@@ -123,6 +123,17 @@ class SpotifyClient:
             new_volume = min(current_volume - 10, 100)
             self.sp.volume(volume_percent=new_volume)
 
+    def get_current_track_info(self):
+        time.sleep(0.5)
+        current_track = self.sp.currently_playing()
+        if current_track is not None:
+            song_name = current_track['item']['name']
+            artist = ", ".join([artist['name'] for artist in current_track['item']['artists']])
+            album_name = current_track['item']['album']['name']
+            return {'song': song_name, 'artist': artist, 'album': album_name}
+        else:
+            return None
+
 
 def main():
     # pass
