@@ -68,7 +68,7 @@ def main():
         elif voice.command == Commands.VOLUME_DECREASE:  # DOESN'T WORK ON MOBILE
             spotify.set_volume(False)
         elif voice.command == Commands.UNKNOWN:
-            play(AudioSegment.from_mp3("puya.mp3"))
+            play(AudioSegment.from_mp3("hello.mp3"))
 
 
 if __name__ == "__main__":
