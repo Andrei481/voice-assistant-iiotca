@@ -21,6 +21,9 @@ def send_to_firebase(song, artist, album):
         "topic": "Spotify",
         "title": "Spotify playing...",
         "message": "Song: " + song + "\nArtist: " + artist + "\nAlbum: " + album
+        "song": song
+        "artist": artist
+        "album": album
     }
     results = db.child("notificationRequests").push(data)
     db.update(data)
