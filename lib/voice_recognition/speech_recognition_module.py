@@ -20,13 +20,16 @@ class Commands(Enum):
     VOLUME_INCREASE = 9
     VOLUME_DECREASE = 10
     UNKNOWN = 11
+    PLAY_1 = 12
 
 
 def get_command(text):
     if   any(phrase in text for phrase in phrases.exit_phrase):
         return Commands.EXIT
-    elif any(phrase in text for phrase in phrases.play_phrase):
+    elif phrases.play[0] in text:
         return Commands.PLAY
+    elif phrases.play[1] in text:
+        return Commands.PLAY_1
     elif phrases.play_playlist_phrase[0] in text:
         return Commands.PLAY_PLAYLIST_0
     elif phrases.play_playlist_phrase[1] in text:
