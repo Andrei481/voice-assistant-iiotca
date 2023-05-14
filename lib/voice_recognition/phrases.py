@@ -1,4 +1,5 @@
-exit_phrase = 'spotify închide'
+keyword = 'spotify'
+exit_phrase = f'{keyword} închide'
 play_phrase = 'spotify pune'
 play_playlist_phrase = ['spotify redă playlistul', 'spotify redă playlist ul', 'spotify redă playlist all']
 pause_phrase = ['spotify stop', 'spotify pauză']
