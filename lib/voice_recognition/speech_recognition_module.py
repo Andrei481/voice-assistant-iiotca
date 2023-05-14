@@ -23,9 +23,9 @@ class Commands(Enum):
 
 
 def get_command(text):
-    if phrases.exit_phrase in text:
+    if   any(phrase in text for phrase in phrases.exit_phrase):
         return Commands.EXIT
-    elif phrases.play_phrase in text:
+    elif any(phrase in text for phrase in phrases.play_phrase):
         return Commands.PLAY
     elif phrases.play_playlist_phrase[0] in text:
         return Commands.PLAY_PLAYLIST_0
@@ -37,13 +37,13 @@ def get_command(text):
         return Commands.PAUSE
     elif any(phrase in text for phrase in phrases.next_phrases):
         return Commands.NEXT
-    elif phrases.previous_phrase in text:
+    elif any(phrase in text for phrase in phrases.previous_phrase):
         return Commands.PREVIOUS
-    elif phrases.resume_phrase in text:
+    elif any(phrase in text for phrase in phrases.resume_phrase):
         return Commands.RESUME
-    elif phrases.increase_volume in text:
+    elif any(phrase in text for phrase in phrases.increase_volume):
         return Commands.VOLUME_INCREASE
-    elif phrases.decrease_volume in text:
+    elif any(phrase in text for phrase in phrases.decrease_volume):
         return Commands.VOLUME_DECREASE
     else:
         return Commands.UNKNOWN
