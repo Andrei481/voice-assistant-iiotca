@@ -26,9 +26,9 @@ class Commands(Enum):
 def get_command(text):
     if   any(phrase in text for phrase in phrases.exit_phrase):
         return Commands.EXIT
-    elif phrases.play[0] in text:
+    elif phrases.play_phrase[0] in text:
         return Commands.PLAY
-    elif phrases.play[1] in text:
+    elif phrases.play_phrase[1] in text:
         return Commands.PLAY_1
     elif phrases.play_playlist_phrase[0] in text:
         return Commands.PLAY_PLAYLIST_0

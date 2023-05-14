@@ -1,17 +1,23 @@
+print("Importing time...")
 import time
 #from pydub import AudioSegment
 #from pydub.playback import play
-
+print("Importing VoiceRecognizer...")
 from lib.voice_recognition.speech_recognition_module import VoiceRecognizer, Commands
 from lib.voice_recognition.phrases import *
+print("Importing SpotifyClient...")
 from api.spotify_client import SpotifyClient
 #from gtts import gTTS
+print("Importing Firebase...")
 from firebase.db import send_to_firebase
+print("Importing OS...")
 import os
 
 
 def main():
+    print("Initializing VoiceRecognizer...")
     voice = VoiceRecognizer()
+    print("Initializing SpotifyClient...")
     spotify = SpotifyClient()
 #    voice_text = "Nuamînțeles, vărog repetați"
 #    language = 'ro'
