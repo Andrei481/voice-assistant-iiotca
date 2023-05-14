@@ -1,11 +1,11 @@
 import time
-from pydub import AudioSegment
-from pydub.playback import play
+#from pydub import AudioSegment
+#from pydub.playback import play
 
 from lib.voice_recognition.speech_recognition_module import VoiceRecognizer, Commands
 from lib.voice_recognition.phrases import *
 from api.spotify_client import SpotifyClient
-from gtts import gTTS
+#from gtts import gTTS
 from firebase.db import send_to_firebase
 import os
 
@@ -14,10 +14,10 @@ def main():
     print("Listening...")
     voice = VoiceRecognizer()
     spotify = SpotifyClient()
-    voice_text = "Nuamînțeles, vărog repetați"
-    language = 'ro'
-    speech = gTTS(text=voice_text, lang=language, slow=False)
-    speech.save("hello.mp3")
+#    voice_text = "Nuamînțeles, vărog repetați"
+#    language = 'ro'
+#    speech = gTTS(text=voice_text, lang=language, slow=False)
+#    speech.save("hello.mp3")
     # spotify.print_devices()
     while True:
         voice.command = ""
@@ -67,9 +67,9 @@ def main():
             spotify.set_volume(True)
         elif voice.command == Commands.VOLUME_DECREASE:  # DOESN'T WORK ON MOBILE
             spotify.set_volume(False)
-        elif voice.command == Commands.UNKNOWN:
-            play(AudioSegment.from_mp3("hello.mp3"))
-
+        #elif voice.command == Commands.UNKNOWN:
+            #play(AudioSegment.from_mp3("hello.mp3"))
+        
 
 if __name__ == "__main__":
     main()
