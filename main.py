@@ -10,7 +10,7 @@ def main():
     print("Listening...")
     voice = VoiceRecognizer()
     spotify = SpotifyClient()
-    spotify.print_devices()
+    #spotify.print_devices()
     while True:
         voice.command = ""
         voice.recognize_speech()

@@ -1,8 +1,0 @@
-{
-'devices':
-[
-{'id': 'f77ec2bda9ef8416d06f174358c03aaccbbd77e9', 'is_active': False, 'is_private_session': False, 'is_restricted': False, 'name': 'RaspberryPi', 'type': 'Speaker', 'volume_percent': 89},
-
-{'id': '959ce198c49f746bd89bd4a3e6b630c28160fa62', 'is_active': False, 'is_private_session': False, 'is_restricted': False, 'name': 'Web Player (Chrome)', 'type': 'Computer', 'volume_percent': 100}
-]
-}
