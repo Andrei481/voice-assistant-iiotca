@@ -15,6 +15,14 @@ firebase = pyrebase.initialize_app(config)
 db = firebase.database()
 
 
+def send_status(satus):
+    data = {
+        "status": status
+    }
+    results = db.child("statuss").push(data)
+    db.update(data)
+    print("Sent to Firebase")
+
 def send_to_firebase(song, artist, album):
     # try:
     data = {

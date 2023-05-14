@@ -10,6 +10,7 @@ from api.spotify_client import SpotifyClient
 #from gtts import gTTS
 print("Importing Firebase...")
 from firebase.db import send_to_firebase
+from firebase.db import send_status
 print("Importing OS...")
 import os
 
@@ -27,6 +28,7 @@ def main():
     while True:
         voice.command = ""
         print("Listening...")
+        send_status("Listening")
         voice.recognize_speech()
         if voice.command == Commands.EXIT:
             break
