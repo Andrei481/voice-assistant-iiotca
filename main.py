@@ -11,7 +11,6 @@ import os
 
 
 def main():
-    print("Listening...")
     voice = VoiceRecognizer()
     spotify = SpotifyClient()
 #    voice_text = "Nuamînțeles, vărog repetați"
@@ -21,6 +20,7 @@ def main():
     # spotify.print_devices()
     while True:
         voice.command = ""
+        print("Listening...")
         voice.recognize_speech()
         if voice.command == Commands.EXIT:
             break
