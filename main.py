@@ -1,4 +1,5 @@
 import time
+from playsound import playsound
 
 from lib.voice_recognition.speech_recognition_module import VoiceRecognizer, Commands
 from lib.voice_recognition.phrases import *
@@ -66,7 +67,7 @@ def main():
         elif voice.command == Commands.VOLUME_DECREASE:  # DOESN'T WORK ON MOBILE
             spotify.set_volume(False)
         elif voice.command == Commands.UNKNOWN:
-            os.system("vlc hello.mp3")
+            playsound('hello.mp3')
 
 
 if __name__ == "__main__":
