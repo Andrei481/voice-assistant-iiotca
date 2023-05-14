@@ -19,7 +19,6 @@ def send_status(status):
     data = {
         "status": status
     }
-    results = db.child("statuss").push(data)
     db.update(data)
     print("Sent to Firebase")
 

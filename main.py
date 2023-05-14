@@ -30,6 +30,7 @@ def main():
         print("Listening...")
         send_status("Listening")
         voice.recognize_speech()
+        send_status(voice.text)
         if voice.command == Commands.EXIT:
             break
         elif voice.command == Commands.PLAY:
