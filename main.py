@@ -1,5 +1,6 @@
 import time
-from playsound import playsound
+from pydub import AudioSegment
+from pydub.playback import play
 
 from lib.voice_recognition.speech_recognition_module import VoiceRecognizer, Commands
 from lib.voice_recognition.phrases import *
@@ -67,7 +68,7 @@ def main():
         elif voice.command == Commands.VOLUME_DECREASE:  # DOESN'T WORK ON MOBILE
             spotify.set_volume(False)
         elif voice.command == Commands.UNKNOWN:
-            playsound('hello.mp3')
+            play(AudioSegment.from_mp3("puya.mp3"))
 
 
 if __name__ == "__main__":
