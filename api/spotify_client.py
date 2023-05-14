@@ -34,11 +34,20 @@ class SpotifyClient:
         self.sp = sp.Spotify(auth_manager=self.auth_manager)
         self.devices = self.sp.devices()
 
+    def print_devices(self):
+        with open('output_testing.txt', 'w') as f:
+            f.write(str(self.devices))
+        #return ["devices"][0]["id"]
+        return None
+
     def check_active_devices(self):
         if not self.devices:
             print("No active devices")
             return None
-        return self.devices["devices"][0]["id"]
+        for device in self.devices["devices"]:
+            if device["name"] == "RaspberryPi":
+                return device["id"]
+        #return self.devices["devices"][0]["id"]
 
     def get_track_uri(self, name: str) -> str:
         """

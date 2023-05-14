@@ -16,6 +16,7 @@ def main():
     language = 'ro'
     speech = gTTS(text=voice_text, lang=language, slow=False)
     speech.save("hello.mp3")
+    # spotify.print_devices()
     while True:
         voice.command = ""
         voice.recognize_speech()

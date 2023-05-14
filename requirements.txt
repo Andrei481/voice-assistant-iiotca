@@ -1,8 +1,19 @@
-pyaudio
-SpeechRecognition
-pycryptodome
-pyrebase
-spotipy~=2.23.0
 
-python-dotenv~=1.0.0
-gTTS~=2.3.2
+pip install the following:
+
+	pyaudio
+	SpeechRecognition
+	pycryptodome
+	pyrebase
+	spotipy~=2.23.0
+	requests-toolbelt==0.8.0
+  python-dotenv~=1.0.0
+  gTTS~=2.3.2
+
+Run the Google Cloud server:
+
+	PORT=8080 DEBUG=myserver:* npm start
+	
+	Expected output:
+ 		myserver@0.0.0 start
+ 		node ./bin/www
