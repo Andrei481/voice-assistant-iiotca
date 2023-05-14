@@ -15,7 +15,7 @@ firebase = pyrebase.initialize_app(config)
 db = firebase.database()
 
 
-def send_status(satus):
+def send_status(status):
     data = {
         "status": status
     }
