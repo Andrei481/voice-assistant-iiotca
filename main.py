@@ -20,11 +20,6 @@ def main():
     voice = VoiceRecognizer()
     print("Initializing SpotifyClient...")
     spotify = SpotifyClient()
-#    voice_text = "Nuamînțeles, vărog repetați"
-#    language = 'ro'
-#    speech = gTTS(text=voice_text, lang=language, slow=False)
-#    speech.save("hello.mp3")
-    # spotify.print_devices()
     while True:
         voice.command = ""
         print("Listening...")
@@ -34,12 +29,6 @@ def main():
             break
         elif voice.command == Commands.PLAY:
             song = str(voice.text).split(play_phrase[0])[1]
-            song_uri = spotify.get_track_uri(song)
-            spotify.play(song_uri)
-            current_track_info = spotify.get_current_track_info()
-            send_to_firebase(current_track_info['song'], current_track_info['artist'], current_track_info['album'])
-        elif voice.command == Commands.PLAY_1:
-            song = str(voice.text).split(play_phrase[1])[1]
             song_uri = spotify.get_track_uri(song)
             spotify.play(song_uri)
             current_track_info = spotify.get_current_track_info()

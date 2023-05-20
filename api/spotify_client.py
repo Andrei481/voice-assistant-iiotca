@@ -44,10 +44,7 @@ class SpotifyClient:
         if not self.devices:
             print("No active devices")
             return None
-        for device in self.devices["devices"]:
-            if device["name"] == "RaspberryPi":
-                return device["id"]
-        #return self.devices["devices"][0]["id"]
+        return self.devices["devices"][0]["id"]
 
     def get_track_uri(self, name: str) -> str:
         """
@@ -67,6 +64,7 @@ class SpotifyClient:
 
     def play(self, uri=None):
         device_id = self.check_active_devices()
+        # print(device_id)
         self.sp.start_playback(uris=[uri], device_id=device_id)
 
     def get_playlist_id(self, name: str):
@@ -133,7 +131,7 @@ class SpotifyClient:
             self.sp.volume(volume_percent=new_volume)
 
     def get_current_track_info(self):
-        time.sleep(0.5)
+        time.sleep(1)
         current_track = self.sp.currently_playing()
         if current_track is not None:
             song_name = current_track['item']['name']

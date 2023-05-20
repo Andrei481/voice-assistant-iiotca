@@ -1,7 +1,7 @@
-keyword              = 'andrei'
+keyword              = 'gigi'
 
 exit_phrase          = [f'{keyword} închide', f'{keyword} ieși']
-play_phrase          = [f'{keyword} pune ',   f'{keyword} redă ']
+play_phrase          = [f'{keyword} pune ']
 play_playlist_phrase = [f'{keyword} redă playlistul ', f'{keyword} redă playlist ul ', f'{keyword} redă playlist all ']
 pause_phrase         = [f'{keyword} stop', f'{keyword} pauză']
 previous_phrase      = [f'{keyword} înapoi']
